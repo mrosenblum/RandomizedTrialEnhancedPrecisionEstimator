@@ -1,0 +1,73 @@
+The SAS System
+
+Obs    modeltype          rhs           tpt
+
+ 1      dropout     male age y1          1 
+ 2      dropout     male age aux1 y2     2 
+ 3      dropout     male age y3          3 
+ 4      dropout     male age aux2 y4     4 
+ 5      outcome     male age y1          2 
+ 6      outcome     male age aux1 y2     3 
+ 7      outcome     male age y3          4 
+ 8      outcome     male age aux2 y4     5 
+The SAS System
+
+                                                                                         mean097_                          mean197_   mean    std
+Obs  meana1  meanp1  meana2  meanp2   diff   diffa  nobs0 nobs1  meanS0  stdS0  mean02_5     5     meanS1  stdS1  mean12_5     5     Sdiff   Sdiff  diff2_5 diff97_5 meanS0a  stdS0a
+
+ 1  78.4516 74.9074 82.0452 78.0153 3.10792 3.59355  250   250  74.9465 0.78479  73.3750  76.4616 77.9755 0.78858  76.4080  79.5100 3.02895 1.01475 1.06633  5.03396 78.4609 0.79345
+
+    mean0a2_ mean0a97_                 mean1a2_ mean1a97_   mean    std            diffa97_                                                  bca   bca  bca
+Obs     5        5     meanS1a  stdS1a     5        5      Sdiffa  Sdiffa diffa2_5     5     bcaLB0  bcaUB0  bcaLB1  bcaUB1  bcaLBD  bcaUBD  LB0a UB0a LB1a bcaUB1a bcaLBDa bcaUBDa
+
+ 1   76.9125  80.0262  82.0342 0.82645   80.4    83.6491  3.57327 1.14383  1.34479  5.80531 73.2758 76.3790 76.4696 79.5654 1.21328 5.17974 76.88  80  80.4 83.6528 1.37044 5.82834
+The SAS System
+
+Obs    nobs0    nobs1    label                                 dname        Nreps    complete     bcalba     bcauba    Estimate     bcalb      bcaub      ratio
+
+ 1      250      250     Treatment group 0                 data.example2    10000     78.4516    76.8800    80.0000     74.9074    73.2758    76.3790    0.97829
+ 2      250      250     Treatment group 1                 data.example2    10000     82.0452    80.4000    83.6528     78.0153    76.4696    79.5654    0.91046
+ 3      250      250     Difference (group 1 - group 0)    data.example2    10000      3.5935     1.3704     5.8283      3.1079     1.2133     5.1797    0.78704
+The SAS System
+
+       macro     data                   model
+Obs    Type      Type       model        Type      trt    tpt       Status    convgMessage                                              n
+
+  1    TMLE     Main      Dropout      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  2    TMLE     Main      Dropout      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  3    TMLE     Main      Dropout      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  4    TMLE     Main      Dropout      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  5    TMLE     Main      Dropout      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  6    TMLE     Main      Dropout      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  7    TMLE     Main      Dropout      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  8    TMLE     Main      Dropout      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  9    TMLE     Main      Outcome      Linear       0      1             0    Algorithm converged.                                      1
+ 10    TMLE     Main      Outcome      Linear       0      2             0    Algorithm converged.                                      1
+ 11    TMLE     Main      Outcome      Linear       0      3             0    Algorithm converged.                                      1
+ 12    TMLE     Main      Outcome      Linear       0      4             0    Algorithm converged.                                      1
+ 13    TMLE     Main      Outcome      Linear       1      1             0    Algorithm converged.                                      1
+ 14    TMLE     Main      Outcome      Linear       1      2             0    Algorithm converged.                                      1
+ 15    TMLE     Main      Outcome      Linear       1      3             0    Algorithm converged.                                      1
+ 16    TMLE     Main      Outcome      Linear       1      4             0    Algorithm converged.                                      1
+ 17    TMLE     Main      Treatment    Logistic     .      .             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 18    TMLE     Sample    Dropout      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.          9997
+ 19    TMLE     Sample    Dropout      Logistic     0      1             1    Quasi-complete separation of data points detected.        3
+ 20    TMLE     Sample    Dropout      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 21    TMLE     Sample    Dropout      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 22    TMLE     Sample    Dropout      Logistic     0      4             0    Convergence criterion (ABSFCONV=1E-8) satisfied.          2
+ 23    TMLE     Sample    Dropout      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.          9996
+ 24    TMLE     Sample    Dropout      Logistic     0      4             1    Quasi-complete separation of data points detected.        2
+ 25    TMLE     Sample    Dropout      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.          9997
+ 26    TMLE     Sample    Dropout      Logistic     1      1             1    Quasi-complete separation of data points detected.        3
+ 27    TMLE     Sample    Dropout      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 28    TMLE     Sample    Dropout      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 29    TMLE     Sample    Dropout      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 30    TMLE     Sample    Outcome      Linear       0      1             0    Algorithm converged.                                  10000
+ 31    TMLE     Sample    Outcome      Linear       0      2             0    Algorithm converged.                                  10000
+ 32    TMLE     Sample    Outcome      Linear       0      3             0    Algorithm converged.                                  10000
+ 33    TMLE     Sample    Outcome      Linear       0      4             0    Algorithm converged.                                  10000
+ 34    TMLE     Sample    Outcome      Linear       1      1             0    Algorithm converged.                                  10000
+ 35    TMLE     Sample    Outcome      Linear       1      2             0    Algorithm converged.                                  10000
+ 36    TMLE     Sample    Outcome      Linear       1      3             0    Algorithm converged.                                  10000
+ 37    TMLE     Sample    Outcome      Linear       1      4             0    Algorithm converged.                                  10000
+ 38    TMLE     Sample    Treatment    Logistic     .      .             0    Convergence criterion (GCONV=1E-9) satisfied.         10000

@@ -1,0 +1,169 @@
+1                                                          The SAS System                           12:35 Friday, September 22, 2017
+
+NOTE: Copyright (c) 2002-2010 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.3 (TS1M2) 
+      Licensed to JOHNS HOPKINS UNIVERSITY - T&R, Site 70080977.
+NOTE: This session is executing on the Linux 2.6.32-696.6.3.el6.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Enhanced analytical products:
+
+SAS/STAT 12.1, SAS/ETS 12.1, SAS/OR 12.2, SAS/IML 12.1, SAS/QC 12.1
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.18 seconds
+      cpu time            0.04 seconds
+      
+1           options nodate nocenter nonumber ls=200 ps=100;
+2          
+3           libname data    "../Data";
+NOTE: Libref DATA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /legacy/dexter/disk2/amcdermo/programs47/Redo/Programs/TMLESAS/Examples/Data
+3        !                            
+4           libname results "Results";
+NOTE: Libref RESULTS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /legacy/dexter/disk2/amcdermo/programs47/Redo/Programs/TMLESAS/Examples/models/Results
+4        !                            
+5          
+6           filename macs "../../macros";
+7           options sasautos = ( sasautos macs );
+8          
+9           data example1;
+10            set data.example1;
+11            keep male age y1-y5 trt; 
+
+NOTE: There were 500 observations read from the data set DATA.EXAMPLE1.
+NOTE: The data set WORK.EXAMPLE1 has 500 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+12          proc print data = example1(obs=20);
+13          run;
+
+NOTE: There were 20 observations read from the data set WORK.EXAMPLE1.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+13       !      
+14         
+15          ods _all_ close;
+16          options nonotes;
+17          %tmle(
+18            data           = example1,
+19            out            = results.model1,
+20            outtab         = results.tab1,
+21            nreps          = 10000,
+22            seed           = 31,
+23            A              = trt,
+24            outcomeVars    = y1-y5,
+25            treatmentModel = male age y1,
+26            dropoutModel   = male age,
+27            outcomeModel   = male age,
+28            clevels        = 95,
+29            convgData      = convgData1,
+30            convgSummary   = results.convgSummary1,
+31            sampleout      = sample1);
+WARNING: No output destinations active.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+The SAS System
+
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+WARNING: There is possibly a quasi-complete separation of data points. The maximum likelihood estimate may not exist.
+WARNING: The LOGISTIC procedure continues in spite of the above warning. Results shown are based on the last maximum likelihood iteration. Validity of the model fit is questionable.
+32         
+33          ods listing;
+34          options notes;
+35          proc print data = results.tab1;
+
+NOTE: There were 3 observations read from the data set RESULTS.TAB1.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+36          proc print data = results.convgSummary1;
+
+NOTE: There were 37 observations read from the data set RESULTS.CONVGSUMMARY1.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+37          proc print data = sample1(obs=25);
+
+NOTE: There were 25 observations read from the data set WORK.SAMPLE1.
+NOTE: The PROCEDURE PRINT printed page 4.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+38          proc print data = convgData1(obs=25);
+39          run;
+
+NOTE: There were 25 observations read from the data set WORK.CONVGDATA1.
+NOTE: The PROCEDURE PRINT printed page 5.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+39       !      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           6:54.34
+      cpu time            5:14.59
+      

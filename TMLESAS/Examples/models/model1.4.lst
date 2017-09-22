@@ -1,0 +1,72 @@
+The SAS System
+
+Obs    trt    male    age     y1      y2      y3      y4      y5
+
+  1     0       0      33    0.75    0.76    0.69    0.62     .  
+  2     1       0      50    0.86    0.89    0.85    0.76    0.69
+  3     1       0      23    0.90    0.87    0.88    0.91    0.78
+  4     1       0      35    0.91    0.93    0.89    0.87    0.83
+  5     1       1      53    0.72    0.67     .       .       .  
+  6     0       0      36    0.75    0.74     .       .       .  
+  7     0       0      49    0.87    0.90    0.93    0.91    0.98
+  8     0       1      51    0.96     .       .       .       .  
+  9     0       0      35    0.76    0.72    0.81    0.81    0.81
+ 10     0       1      32    0.73    0.72     .       .       .  
+ 11     0       1      34    0.81     .       .       .       .  
+ 12     1       0      50    0.71    0.67    0.56    0.53     .  
+ 13     0       1      51    0.71     .       .       .       .  
+ 14     0       0      22    0.98    0.92    0.95    0.91    0.89
+ 15     0       1      19    0.81    0.69     .       .       .  
+ 16     1       1      24    0.95    0.97    0.94    0.91    0.94
+ 17     0       0      45    0.74    0.76    0.73    0.74    0.63
+ 18     0       0      39    0.96    0.92    0.95    0.89    0.91
+ 19     0       0      38    0.88    0.90    0.78    0.78     .  
+ 20     1       0      44    0.78    0.80    0.83    0.80    0.73
+The SAS System
+
+Obs    nobs0    nobs1    label                              dname      Nreps    complete     bcalba     bcauba    Estimate     bcalb      bcaub      ratio
+
+ 1      250      250     Treatment group 0                 example1    10000     0.78452    0.76891    0.79932     0.74851    0.73217    0.76272    0.99710
+ 2      250      250     Treatment group 1                 example1    10000     0.82045    0.80333    0.83623     0.78012    0.76368    0.79600    0.99766
+ 3      250      250     Difference (group 1 - group 0)    example1    10000     0.03594    0.01360    0.05801     0.03161    0.01207    0.05323    0.83163
+The SAS System
+
+       macro     data                   model
+Obs    Type      Type       model        Type      trt    tpt       Status                       convgMessage                           n
+
+  1    TMLE     Main      Dropout      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  2    TMLE     Main      Dropout      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  3    TMLE     Main      Dropout      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  4    TMLE     Main      Dropout      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  5    TMLE     Main      Dropout      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  6    TMLE     Main      Dropout      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  7    TMLE     Main      Dropout      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  8    TMLE     Main      Dropout      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+  9    TMLE     Main      Outcome      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 10    TMLE     Main      Outcome      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 11    TMLE     Main      Outcome      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 12    TMLE     Main      Outcome      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 13    TMLE     Main      Outcome      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 14    TMLE     Main      Outcome      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 15    TMLE     Main      Outcome      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 16    TMLE     Main      Outcome      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 17    TMLE     Main      Treatment    Logistic     .      .             0    Convergence criterion (GCONV=1E-9) satisfied.             1
+ 18    TMLE     Sample    Dropout      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.          9998
+ 19    TMLE     Sample    Dropout      Logistic     0      1             1    Quasi-complete separation of data points detected.        2
+ 20    TMLE     Sample    Dropout      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 21    TMLE     Sample    Dropout      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 22    TMLE     Sample    Dropout      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.          9997
+ 23    TMLE     Sample    Dropout      Logistic     0      4             1    Quasi-complete separation of data points detected.        3
+ 24    TMLE     Sample    Dropout      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 25    TMLE     Sample    Dropout      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 26    TMLE     Sample    Dropout      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 27    TMLE     Sample    Dropout      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 28    TMLE     Sample    Outcome      Logistic     0      1             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 29    TMLE     Sample    Outcome      Logistic     0      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 30    TMLE     Sample    Outcome      Logistic     0      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 31    TMLE     Sample    Outcome      Logistic     0      4             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 32    TMLE     Sample    Outcome      Logistic     1      1             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 33    TMLE     Sample    Outcome      Logistic     1      2             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 34    TMLE     Sample    Outcome      Logistic     1      3             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 35    TMLE     Sample    Outcome      Logistic     1      4             0    Convergence criterion (GCONV=1E-9) satisfied.         10000
+ 36    TMLE     Sample    Treatment    Logistic     .      .             0    Convergence criterion (GCONV=1E-9) satisfied.         10000

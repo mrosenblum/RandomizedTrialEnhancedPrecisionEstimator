@@ -1,0 +1,9 @@
+Obs,Modeltype,rhs,tpt
+1,dropout,male age y1,1
+2,dropout,male age aux1 y2,2
+3,dropout,male age y3,3
+4,dropout,male age aux2 y4,4
+5,outcome,male age y1,2
+6,outcome,male age aux1 y2,3
+7,outcome,male age y3,4
+8,outcome,male age aux2 y4,5

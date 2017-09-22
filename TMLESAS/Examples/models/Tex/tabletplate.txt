@@ -1,0 +1,54 @@
+\begin{minipage}{\textwidth}
+{\renewcommand{\baselinestretch}{1.0}\selectfont
+\begin{minipage}[l]{5.6in}
+\normalsize\em%
+  ##H
+\end{minipage}}\vspace{-0.11in}%
+
+{\renewcommand{\baselinestretch}{1.1}\selectfont\normalsize\selectfont\noindent%
+\begin{tabular}{lrrrrrrrr}\hline
+   \multicolumn{1}{c}{ } &    \multicolumn{3}{c}{\em Complete Case} &    \multicolumn{3}{c}{\em TMLE} &    \multicolumn{1}{c}{ }
+\\[-0.10in]
+   \multicolumn{1}{c}{~} &
+   \multicolumn{3}{c}{\rule[0.05in]{1.6in}{0.01in}} &
+   \multicolumn{3}{c}{\rule[0.05in]{1.6in}{0.01in}}
+\\[-0.05in]
+   \multicolumn{2}{c}{ } &    \multicolumn{2}{c}{\em BCA 95-\% CI} &    \multicolumn{1}{c}{ } &    \multicolumn{2}{c}{\em BCA 95-\% CI} &\em    Relative\\[-0.04in]
+   \multicolumn{1}{c}{ } &   \em Estimate & \em   Lower & \em   Upper & \em   Estimate & \em   Lower & \em   Upper & \em   Efficiency\\[0.0in]
+\hline
+Difference \rule[0.18in]{0.0in}{0.0in} &  ##1 &  ##2 &  ##3  &  ##4 & ##5 & ##6  & ##7 \\[-0.05in]
+   (group 1 $-$ group 0)     &      &      &       &      &     &      &     \\
+   Treatment group 0         &  ##1 &  ##2 &  ##3  &  ##4 & ##5 & ##6  & ##7 \\
+   Treatment group 1         &  ##1 &  ##2 &  ##3  &  ##4 & ##5 & ##6  & ##7 \\
+\hline \end{tabular}}
+\vspace{0.09in}
+
+{\renewcommand{\baselinestretch}{1.05}\selectfont
+\begin{minipage}[l]{5.6in}
+\normalsize\em%
+Notes:\vspace{-0.12in}
+
+\begin{itemize}
+\item[{1.}] Relative Efficiency is the TMLE variance estimate divided by the complete case variance estimate, where both variances are estimated using the bootstrap.\vspace{-0.11in}
+\item[{2.}] The models were:
+
+{\ }\hspace{##indentm}\begin{minipage}[t]{5.6in}
+\begin{tabular}{lllll}
+  ##m1
+\end{tabular}
+\end{minipage}\\[-0.08in]
+
+\begin{minipage}[t]{5.2in}
+  ##note1
+
+  ##note2
+\end{minipage}\\[-0.15in]
+
+\item[{3.}] The number of bootstraps was ##N.
+\end{itemize}
+\vspace{-0.27in}
+
+\rule[0.0in]{5.7in}{0.01in}
+\end{minipage}}
+\end{minipage}
+\vspace{0.3in}
